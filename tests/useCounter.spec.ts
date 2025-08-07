@@ -1,8 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import useCounter from '../src/hooks/features/homepage/useCounter';
 
-// project_root/tests/useCounter.spec.ts
-
 describe('useCounter', () => {
   it('should initialize count to 0 and val to 1', () => {
     const { result } = renderHook(() => useCounter());
@@ -22,6 +20,8 @@ describe('useCounter', () => {
     const { result } = renderHook(() => useCounter());
     act(() => {
       result.current.setVal(5);
+    });
+    act(() => {
       result.current.increment();
     });
     expect(result.current.count).toBe(5);
